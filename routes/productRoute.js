@@ -11,6 +11,6 @@ import {
 router.get("/:id", asyncWrapper(getProduct));
 router.post("/new", asyncWrapper(createProduct));
 router.patch("/update/:id", asyncWrapper(updateProduct));
-router.patch("/delete/:id", asyncWrapper(deleteProduct));
+router.delete("/delete/:id", asyncWrapper(deleteProduct));
 
 export default router;

@@ -1,5 +1,8 @@
 // handle uncaught rejection
-
+process.on("uncaughtException", (err) => {
+  console.log("uncaught", err.message);
+  process.exit(1);
+});
 // import files her
 import app from "./app.js";
 import Database from "./db/db.js";
@@ -13,11 +16,6 @@ db.connect().catch((err) => {
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
   console.log("server is running", PORT);
-});
-
-process.on("uncaughtException", (err) => {
-  console.log("unhandle rejection", err.message);
-  process.exit(1);
 });
 
 process.on("unhandledRejection", (err) => {

@@ -20,7 +20,7 @@ export const createProduct = async (req, res) => {
 };
 export const updateProduct = async (req, res, next) => {
   const { id } = req.params;
-  const updatePro = await productModel.updateOne({ _id: id, $set: req.body });
+  const updatePro = await productModel.updateOne({ _id: id }, { ...req.body });
 
   return res.status(200).json({
     msg: "update susccesfull",
@@ -29,4 +29,8 @@ export const updateProduct = async (req, res, next) => {
 export const deleteProduct = async (req, res, next) => {
   const { id } = req.params;
   const deltePro = await productModel.deleteOne({ _id: id });
+
+  return res.status(200).json({
+    msg: "delete susccesfull",
+  });
 };
